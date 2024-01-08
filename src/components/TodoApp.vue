@@ -1,7 +1,7 @@
 <template>
   <h1>Vue Todo App</h1>
   <TodoForm @add="addTodo" />
-  <TodoList :todos="todos" @delete="deleteTodo" />
+  <TodoList :todos="todos" @edit="editTodo" @delete="deleteTodo" />
 </template>
 
 <script>
@@ -23,10 +23,16 @@ export default {
     addTodo(newTodo) {
       this.todos.push({
         id: this.todos.length + 1,
-        text: newTodo})
+        text: newTodo,
+        editing: false,})
     },
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+    editTodo(id) {
+      this.todos = this.todos.map(todo =>
+        todo.id === id ? { ...todo, editing: !todo.editing } : todo
+      )
     },
   },
 }
