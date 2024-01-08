@@ -1,21 +1,30 @@
 <template>
   <h1>Vue Todo App</h1>
-  <div v-for="todo in todos" :key="todo.id">
-    {{ todo.text }}
-  </div>
+  <TodoForm @add="addTodo" />
+  <TodoList :todos="todos" />
 </template>
 
 <script>
+import TodoForm from './/TodoForm.vue'
+import TodoList from './/TodoList.vue'
+
 export default {
   name: 'TodoApp',
-  data () {
+  components: {
+    TodoForm,
+    TodoList,
+  },
+  data() {
     return {
-      todos: [
-        { id: 1, text: 'task1' },
-        { id: 2, text: 'task2' },
-        { id: 3, text: 'task3' },
-      ]
+      todos: [],
     }
-  }
+  },
+  methods: {
+    addTodo(newTodo) {
+      this.todos.push({
+        id: this.todos.length + 1,
+        text: newTodo})
+    },
+  },
 }
 </script>
