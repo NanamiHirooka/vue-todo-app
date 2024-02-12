@@ -1,15 +1,24 @@
 <template>
-  <div class="todo-list">
-    <div
-      v-for="todo in todos" :key="todo.id" class="todo-item">
-      <div v-if="todo.editing">
-        <input type="text" v-model="todo.text" />
-      </div>
-      <div v-else>{{ todo.text }}</div>
-      <button @click="editTodo(todo.id)">{{ changeButtonText(todo) }}</button>
-      <button @click="deleteTodo(todo.id)">Delete</button>
-    </div>
-  </div>
+  <v-table>
+    <tbody>
+      <tr v-for="todo in todos" :key="todo.id">
+        <td @click="editTodo(todo.id)">
+          <div v-if="todo.editing">
+            <v-text-field
+              v-model="todo.text"
+              variant="plain"
+              autofocus />
+          </div>
+          <div v-else>{{ todo.text }}</div>
+        </td>
+        <td>
+          <v-btn
+            @click="deleteTodo(todo.id)"
+            class="text-red-darken-2">Delete</v-btn>
+        </td>
+      </tr>
+    </tbody>
+  </v-table>
 </template>
 
 <script>
@@ -30,12 +39,3 @@ export default {
   },
 }
 </script>
-
-<style>
-  .todo-list {
-    margin-top: 20px;
-  }
-  .todo-item {
-    display: flex;
-  }
-</style>

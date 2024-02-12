@@ -1,7 +1,11 @@
 <template>
-  <h1>Vue Todo App</h1>
-  <TodoForm @add="addTodo" />
-  <TodoList :todos="todos" @edit="editTodo" @delete="deleteTodo" />
+  <v-app>
+    <v-app-bar elevation="1">
+      <v-app-bar-title>Vue Todo App</v-app-bar-title>
+    </v-app-bar>
+    <TodoForm class="mt-16" @add="addTodo" />
+    <TodoList :todos="todos" @edit="editTodo" @delete="deleteTodo" />
+  </v-app>
 </template>
 
 <script>
@@ -16,7 +20,11 @@ export default {
   },
   data() {
     return {
-      todos: [],
+      todos: [
+        { id: 1, text: 'Learn Vue', editing: false },
+        { id: 2, text: 'Learn Vuex', editing: false },
+        { id: 3, text: 'Learn Vue Router', editing: false },
+      ],
     }
   },
   methods: {
