@@ -20,11 +20,7 @@ export default {
   },
   data() {
     return {
-      todos: [
-        { id: 1, text: 'Learn Vue', editing: false },
-        { id: 2, text: 'Learn Vuex', editing: false },
-        { id: 3, text: 'Learn Vue Router', editing: false },
-      ],
+      todos: [],
     }
   },
   methods: {
