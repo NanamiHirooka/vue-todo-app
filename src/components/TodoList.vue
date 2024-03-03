@@ -2,14 +2,14 @@
   <v-table>
     <thead>
       <tr>
-        <th>Done</th>
+        <th width="100px"></th>
         <th>Todo</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="todo in todos" :key="todo.id" :class="trColor(todo.id)">
-        <td>
+        <td width="100px">
           <div class="mt-5">
             <v-checkbox
               v-model="todo.done"
