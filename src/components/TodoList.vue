@@ -33,9 +33,6 @@ export default {
     editTodo(id) {
       this.$emit('edit', id)
     },
-    changeButtonText(todo) {
-      return todo.editing ? 'Save' : 'Edit'
-    },
   },
 }
 </script>
