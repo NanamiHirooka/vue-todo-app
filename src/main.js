@@ -30,9 +30,6 @@ const vuetify = createVuetify({
       rounded: true,
       variant: "flat",
     },
-    VTextField: {
-      variant: "underlined",
-    },
   },
 });
 

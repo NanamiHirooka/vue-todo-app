@@ -1,7 +1,21 @@
 <template>
   <v-table>
+    <thead>
+      <tr>
+        <th>Done</th>
+        <th>Todo</th>
+        <th></th>
+      </tr>
+    </thead>
     <tbody>
-      <tr v-for="todo in todos" :key="todo.id">
+      <tr v-for="todo in todos" :key="todo.id" :class="trColor(todo.id)">
+        <td>
+          <div class="mt-5">
+            <v-checkbox
+              v-model="todo.done"
+            />
+          </div>
+        </td>
         <td @click="editTodo(todo.id)">
           <div v-if="todo.editing">
             <v-text-field
@@ -24,7 +38,10 @@
 <script>
 export default {
   name: 'TodoList',
-  props: [ 'todos' ],
+  props: {
+    todos: Array,
+    default: () => []
+  },
   emits: [ 'delete', 'edit' ],
   methods: {
     deleteTodo(id) {
@@ -32,6 +49,10 @@ export default {
     },
     editTodo(id) {
       this.$emit('edit', id)
+    },
+    trColor(id) {
+      if (!this.todos) return;
+      return this.todos.find(todo => todo.id === id).done ? 'bg-grey-lighten-4' : ''
     },
   },
 }

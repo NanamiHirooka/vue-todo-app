@@ -25,10 +25,12 @@ export default {
   },
   methods: {
     addTodo(newTodo) {
-      this.todos.push({
+      this.todos.unshift({
         id: this.todos.length + 1,
         text: newTodo,
-        editing: false,})
+        editing: false,
+        done: false,
+      })
     },
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
