@@ -10,14 +10,6 @@
             @click:append-inner="addTodo"
           />
         </v-col>
-        <!-- <v-col cols="8" align-self="center">
-          <v-btn
-            @click="addTodo"
-            prepend-icon="$plus"
-            variant="flat"
-            class="text-blue-darken-2"
-          >Add</v-btn>
-        </v-col>     -->
       </v-row>
     </v-container>
   </v-form>
