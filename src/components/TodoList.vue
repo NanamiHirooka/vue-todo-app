@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <v-table>
     <thead>
       <tr>
@@ -56,4 +56,4 @@ export default {
     },
   },
 }
-</script>
+</script> -->

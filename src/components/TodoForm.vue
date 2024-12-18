@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <v-form>
     <v-container class="ma-0">
       <v-row align-content="center">
@@ -32,4 +32,4 @@ export default {
     },
   },
 }
-</script>
+</script> -->
